@@ -289,26 +289,6 @@
         }
       }
 
-      /* .bounce {
-        animation: bounce 2s infinite;
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateY(0);
-        }
-        40% {
-          transform: translateY(-20px);
-        }
-        60% {
-          transform: translateY(-10px);
-        }
-      } */
-
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
@@ -392,40 +372,31 @@
         }
       }
 
+      @media (max-width: 767px) {
+        .game-img {
+          height: 140px;
+          width: 80%;
+          object-fit: cover;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          border-radius: 8px;
+          margin-top: 10px;
+        }
 
+        .game-card {
+          text-align: center;
+        }
 
-
-
-      /* Add these styles to your existing CSS */
-
-@media (max-width: 767px) {
-  .game-img {
-    height: 140px; /* Smaller height for mobile screens */
-    width: 80%; /* Reducing width to 80% */
-    object-fit: cover;
-    margin-left: auto; /* Center the image */
-    margin-right: auto; /* Center the image */
-    display: block; /* Needed for margin auto to work */
-    border-radius: 8px; /* Optional: keeping corners rounded */
-    margin-top: 10px; /* Add some spacing at the top */
-  }
-  
-  /* Adjust card styling to accommodate centered image */
-  .game-card {
-    text-align: center; /* Center card content on mobile */
-  }
-  
-  /* Make sure badge stays in proper position relative to centered image */
-  .badge-category {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 15px;
-  }
-}
+        .badge-category {
+          left: 50%;
+          transform: translateX(-50%);
+          top: 15px;
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#"
@@ -445,13 +416,7 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
- 
-
-    <!-- Search & Categories -->
   
-
-    <!-- Games Section -->
     <section class="py-5 bg-light" id="games" style="margin-top: 100px;">
       <div class="container">
         <div class="text-center mb-5">
@@ -468,7 +433,6 @@
       
     </section>
 
-    <!-- Back to top button -->
     <button
       type="button"
       class="btn btn-primary btn-floating btn-lg rounded-circle position-fixed bottom-0 end-0 m-4"
@@ -478,235 +442,154 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Expanded game data
       const games = [
-      {
-    "title": "Minecraft",
-  "category": "Adventure",
-  "rating": 4.6,
-  "downloads": "500M+",
-  "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep in survival mode, crafting weapons and armor to fend off dangerous mobs.",
-  "badge": "FREE",
-  "image": "https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png",
-    downloadLink: {
-      android: "https://installchecker.com/cl/i/ndr9gk",
-      apple: "https://installchecker.com/cl/i/ndr9gk",
-    }
-  },
-  {
-    title: "Roblox",
-    category: "Simulation",
-    rating: 4.5,
-    downloads: "100M+",
-    description: "Roblox lets you create, share experiences, and be anything you can imagine.",
-    badge: "FREE",
-    image: "https://www.tubefilter.com/wp-content/uploads/2023/01/roblox-quest-metaverse-1400x825.jpg",
-    downloadLink: {
-      android: "https://installchecker.com/cl/i/2lj9ol",
-      apple: "https://installchecker.com/cl/i/2lj9ol",
-    }
-  },
-  {
-  "title": "All in Hole",
-  "category": "Puzzle / Casual",
-  "rating": 4.8,
-  "downloads": "1M+",
-  "description": "Welcome to All in Hole!, an addictive but satisfying black hole game, where you need to eat to solve the puzzle! Navigate through colorful levels and control the gravitational force of a black hole. Help Molly solve puzzles as you dive into this eating game and use the physics of a black hole to eat all the required treats to advance. Remember, the end goal in this eating game is to relax!",
-  "badge": "FREE",
-  "image": "https://i.ytimg.com/vi/UkekewJ3Esk/maxresdefault.jpg",
-  downloadLink: {
-      android: "https://installchecker.com/cl/i/e6qe1x",
-      apple: "https://installchecker.com/cl/i/e6qe1x",
-    }
-},
-{
-    "title": "Fishdom",
-    "category": "Puzzle / Casual",
-    "rating": 4.5,
-    "downloads": "100M+",
-    "description": "Never Fishdomed before? Take a deep breath and dive into an underwater world of match-3 fun! Decorate aquariums, feed fish, and watch them interact with each other—all in a relaxing, colorful aquatic environment. Swap and match pieces, design tanks, and unlock new fish with quirky personalities.",
-    "badge": "FREE",
-    "image": "https://play-lh.googleusercontent.com/JNi-yl1uHKt0Uk401Cl-6B4GB-ozP9IDdzmb_R2-0LHBGt0XaMoPOz3Lxdz9YbmZ0g=w526-h296-rw",
-    downloadLink: {
-      android: "https://installchecker.com/cl/i/j63x4n",
-      apple: "https://installchecker.com/cl/i/j63x4n",
-    }
-  },
-  {
-    "title": "I Am Security", 
-    "category": "Puzzle / Casual",
-    "rating": 4.5,
-    "downloads": "100M+",
-    "description": "Never Fishdomed before? Take a deep breath and dive into an underwater world of match-3 fun! Decorate aquariums, feed fish, and watch them interact with each other—all in a relaxing, colorful aquatic environment. Swap and match pieces, design tanks, and unlock new fish with quirky personalities.",
-    "badge": "FREE",
-    "image": "https://play-lh.googleusercontent.com/4mqQs6DG9oa1yImua9GN9H1V--EfNj1LhR0AtdrbPKYE0J9oOPMbYTJCXWw1WxHXgw",
-    downloadLink: {
-      android: "https://installchecker.com/cl/i/x6w1ll",
-      apple: "https://installchecker.com/cl/i/x6w1ll",
-    }
-},
-{
-  "title": "Follow the Meaning",
-  "category": "Adventure / Puzzle",
-  "rating": "4.9",
-  "downloads": "100M+",
-  "description": "The game follows detective Paul Tribly, who receives a distress call that leads him to a strange island town, divided by a wall and ruled by a hospital. Citizens are regularly admitted and return without their memories. Can you uncover this mysterious conspiracy?",
-  "badge": "FREE",
-  "image": "https://play-lh.googleusercontent.com/kNenqOebdyLhz6VXVCBhCSzaYC-pDsBWUq4eXOnklBotDDKlCkYUP_cC0DYX7DFGog=w526-h296-rw",
-  downloadLink: {
-      android: "https://installchecker.com/cl/i/lk48vd",
-      apple: "https://installchecker.com/cl/i/lk48vd",
-    }
-}
-];
-  
-      // Track if we're showing all games or just the first 6
+        {
+          "title": "Minecraft",
+          "category": "Adventure",
+          "rating": 4.6,
+          "downloads": "500M+",
+          "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep in survival mode, crafting weapons and armor to fend off dangerous mobs.",
+          "badge": "FREE",
+          "image": "https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/ndr9gk",
+            "apple": "https://installchecker.com/cl/i/ndr9gk"
+          }
+        },
+        {
+          "title": "Roblox",
+          "category": "Simulation",
+          "rating": 4.5,
+          "downloads": "100M+", 
+          "description": "Roblox lets you create, share experiences, and be anything you can imagine.",
+          "badge": "FREE",
+          "image": "https://www.tubefilter.com/wp-content/uploads/2023/01/roblox-quest-metaverse-1400x825.jpg",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/2lj9ol",
+            "apple": "https://installchecker.com/cl/i/2lj9ol"
+          }
+        },
+        {
+          "title": "All in Hole",
+          "category": "Puzzle / Casual",
+          "rating": 4.8,
+          "downloads": "1M+",
+          "description": "Welcome to All in Hole!, an addictive but satisfying black hole game, where you need to eat to solve the puzzle! Navigate through colorful levels and control the gravitational force of a black hole. Help Molly solve puzzles as you dive into this eating game and use the physics of a black hole to eat all the required treats to advance. Remember, the end goal in this eating game is to relax!",
+          "badge": "FREE",
+          "image": "https://i.ytimg.com/vi/UkekewJ3Esk/maxresdefault.jpg",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/e6qe1x",
+            "apple": "https://installchecker.com/cl/i/e6qe1x"
+          }
+        },
+        {
+          "title": "Fishdom",
+          "category": "Puzzle / Casual",
+          "rating": 4.5,
+          "downloads": "100M+",
+          "description": "Never Fishdomed before? Take a deep breath and dive into an underwater world of match-3 fun! Decorate aquariums, feed fish, and watch them interact with each other—all in a relaxing, colorful aquatic environment. Swap and match pieces, design tanks, and unlock new fish with quirky personalities.",
+          "badge": "FREE",
+          "image": "https://play-lh.googleusercontent.com/JNi-yl1uHKt0Uk401Cl-6B4GB-ozP9IDdzmb_R2-0LHBGt0XaMoPOz3Lxdz9YbmZ0g=w526-h296-rw",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/j63x4n",
+            "apple": "https://installchecker.com/cl/i/j63x4n"
+          }
+        },
+        {
+          "title": "I Am Security",
+          "category": "Puzzle / Casual",
+          "rating": 4.5,
+          "downloads": "100M+",
+          "description": "Never Fishdomed before? Take a deep breath and dive into an underwater world of match-3 fun! Decorate aquariums, feed fish, and watch them interact with each other—all in a relaxing, colorful aquatic environment. Swap and match pieces, design tanks, and unlock new fish with quirky personalities.",
+          "badge": "FREE",
+          "image": "https://play-lh.googleusercontent.com/4mqQs6DG9oa1yImua9GN9H1V--EfNj1LhR0AtdrbPKYE0J9oOPMbYTJCXWw1WxHXgw",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/x6w1ll",
+            "apple": "https://installchecker.com/cl/i/x6w1ll"
+          }
+        },
+        {
+          "title": "Brain It On!",
+          "category": "Puzzle / Physics",
+          "rating": 4.3,
+          "downloads": "10M+",
+          "description": "A challenging physics puzzle game where you draw shapes to solve problems. Every level has multiple creative solutions—test your brain power in Brain It On!",
+          "badge": "FREE",
+          "image": "https://play-lh.googleusercontent.com/Emg6Xd5XTcIYlMqXT1wTp33RHnNyf8nY6DPQGsMadF4Gr_kgH7PSN77SQLMLHVK90Q",
+          "downloadLink": {
+            "android": "https://installchecker.com/cl/i/37x6m7",
+            "apple": "https://installchecker.com/cl/i/37x6m7"
+          }
+        }
+      ];
+
       let showingAllGames = false;
 
-      // Function to render games
+      function handleDownload(gameData) {
+        const game = JSON.parse(decodeURIComponent(gameData));
+        // Get either android or apple link, prioritizing android
+        const downloadUrl = game.downloadLink.android || game.downloadLink.apple;
+        
+        // Automatically redirect to download URL
+        if (downloadUrl) {
+          window.location.href = downloadUrl;
+        }
+      }
+
       function renderGames(category = "all", platform = "all") {
         const gamesContainer = $("#gamesContainer");
         gamesContainer.empty();
 
-        const filteredGames = games.filter((game) => {
-          const categoryMatch =
-            category === "all" ||
-            game.category.toLowerCase() === category.toLowerCase();
-          const platformMatch =
-            platform === "all" || game.downloadLink[platform];
-          return categoryMatch && platformMatch;
-        });
+        let gamesToRender = games;
+        
+        if (category !== "all" || platform !== "all") {
+          gamesToRender = games.filter(game => {
+            const categoryMatch = category === "all" || game.category.toLowerCase().includes(category.toLowerCase());
+            const platformMatch = platform === "all" || (game.downloadLink && game.downloadLink[platform]);
+            return categoryMatch && platformMatch;
+          });
+        }
 
-        // Determine how many games to show
-        const gamesToShow = showingAllGames
-          ? filteredGames
-          : filteredGames.slice(0, 10000000000);
+        if (!showingAllGames) {
+          gamesToRender = gamesToRender.slice(0, 6);
+        }
 
-        gamesToShow.forEach((game) => {
+        gamesToRender.forEach(game => {
           const gameCard = `
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card game-card h-100">
-                            <img src="${
-                              game.image
-                            }" class="card-img-top game-img" alt="${
-            game.title
-          }">
-                            ${
-                              game.badge
-                                ? `<span class="badge bg-danger badge-category">${game.badge}</span>`
-                                : ""
-                            }
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">${game.title}</h5>
-                                <div class="rating mb-2">
-                                    <div class="stars">
-                                        ${'<i class="fas fa-star"></i>'.repeat(
-                                          Math.floor(game.rating)
-                                        )}
-                                        ${
-                                          game.rating % 1 !== 0
-                                            ? '<i class="fas fa-star-half-alt"></i>'
-                                            : ""
-                                        }
-                                    </div>
-                                    <span>${game.rating}/5</span>
-                                </div>
-                                <p class="card-text flex-grow-1">${
-                                  game.description
-                                }</p>
-                                <div class="mt-auto">
-                                    <a href="#" class="btn download-btn w-100" onclick="handleDownload('${encodeURIComponent(
-                                      JSON.stringify(game)
-                                    )}')">
-                                        Download
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card game-card h-100">
+                <img src="${game.image}" class="card-img-top game-img" alt="${game.title}">
+                ${game.badge ? `<span class="badge bg-danger badge-category">${game.badge}</span>` : ''}
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">${game.title}</h5>
+                  <div class="rating mb-2">
+                    <div class="stars">
+                      ${'<i class="fas fa-star"></i>'.repeat(Math.floor(game.rating))}
+                      ${game.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
                     </div>
-                `;
+                    <span>${game.rating}/5</span>
+                  </div>
+                  <p class="card-text flex-grow-1">${game.description}</p>
+                  <div class="mt-auto">
+                    <a href="#" class="btn download-btn w-100" onclick="handleDownload('${encodeURIComponent(JSON.stringify(game))}')">
+                      Download
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
           gamesContainer.append(gameCard);
         });
-
-        // Show/hide the View All button based on whether we're showing all games
-        if (filteredGames.length > 6) {
-          $("#viewAllBtn").toggle(!showingAllGames);
-        } else {
-          $("#viewAllBtn").hide();
-        }
       }
 
-      // Function to handle download directly
-      function handleDownload(game) {
-    const gameData = JSON.parse(decodeURIComponent(game));
-    
-    // Detect user platform
-    const platform = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream ? 'apple' : 'android';
-    
-    const downloadLink = gameData.downloadLink[platform];
-    
-    if (downloadLink) {
-        window.open(downloadLink, '_blank'); // Open in new tab
-    } else {
-        alert('Download link not available for your device');
-    }
-    return false;
-}
-
-      // Event listener for View All button
-      $("#viewAllBtn").click(function () {
-        showingAllGames = true;
-        const category = $(".category-badge.active").data("category") || "all";
-        const platform = $("#platformFilter").val();
-        renderGames(category, platform);
-        $(this).hide();
-      });
-
-      // Event listener for category filters
-      $(".category-badge").click(function () {
-        showingAllGames = false;
-        const category = $(this).data("category");
-        const platform = $("#platformFilter").val();
-        renderGames(category, platform);
-      });
-
-      // Event listener for platform filter
-      $("#platformFilter").change(function () {
-        showingAllGames = false;
-        const platform = $(this).val();
-        const category = $(".category-badge.active").data("category") || "all";
-        renderGames(category, platform);
-      });
-
-      // Initial render of first 6 games
-      renderGames();
-
-      // Back to top button functionality
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-          $("#backToTop").fadeIn();
-        } else {
-          $("#backToTop").fadeOut();
-        }
-      });
-
-      $("#backToTop").click(function () {
-        $("html, body").animate({ scrollTop: 0 }, 800);
-        return false;
-      });
-
-      // Navbar scroll effect
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 50) {
-          $(".navbar").addClass("scrolled");
-        } else {
-          $(".navbar").removeClass("scrolled");
-        }
+      $(document).ready(function() {
+        renderGames();
       });
     </script>
   </body>
 </html>
+
